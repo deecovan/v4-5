@@ -1,5 +1,8 @@
 # v4-5 GitHub repo 
 
+# 25-08-12
+- Draw Pawn with draw_line
+
 ## 25-08-08 Initial
 - Project settings:
   * 30 fps

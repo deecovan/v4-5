@@ -1,16 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://boaew5wnn17xx"]
+[gd_scene load_steps=3 format=3 uid="uid://boaew5wnn17xx"]
 
 [ext_resource type="Script" uid="uid://b78n064s50uy1" path="res://Scripts/main.gd" id="1_jjgbg"]
-[ext_resource type="Texture2D" uid="uid://b5k7efvwl63jq" path="res://icon.svg" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://8jhwt8i5nqgl" path="res://Scenes/pawn.tscn" id="2_bo1nx"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jjgbg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(66, 67)
-texture = ExtResource("2_8gbba")
-
 [node name="Pawn" parent="." instance=ExtResource("2_bo1nx")]
-position = Vector2(66, 94)
