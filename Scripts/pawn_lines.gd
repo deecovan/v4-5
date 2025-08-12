@@ -44,7 +44,7 @@ func _process(_delta):
 		$AnimationPlayer.play("idle")
 		queue_redraw()
 	else:
-		$AnimationPlayer.stop()
+		$AnimationPlayer.pause()
 
 # Draw the Pawn
 func _draw():
