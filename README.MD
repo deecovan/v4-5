@@ -1,6 +1,8 @@
 # v4-5 GitHub repo 
 
 ## 25-08-12 Draw Pawn 2 Circles and PathFollow2D
+- Path2D looks good 
+- Ready to deploy Eyes and Arms in Pathes
 
 ## 25-08-12 Draw Pawn 1 \_draw() lines and Polygon2D
 - Draw Pawn with draw_line

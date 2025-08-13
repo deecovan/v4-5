@@ -1,0 +1,112 @@
+[gd_scene load_steps=10 format=3 uid="uid://bprviblg0xs3q"]
+
+[ext_resource type="Script" uid="uid://ct2r0uxenrc81" path="res://Scripts/pawn_path.gd" id="1_s3cet"]
+[ext_resource type="Script" uid="uid://bdrqnlg3abco6" path="res://Scripts/character_body_2d.gd" id="2_os0yo"]
+[ext_resource type="Texture2D" uid="uid://dv55rssbv1o6p" path="res://Assets/cross_RED.png" id="3_os0yo"]
+[ext_resource type="Script" uid="uid://dot6hcl0n1377" path="res://Scripts/dot.gd" id="4_lya4p"]
+
+[sub_resource type="Animation" id="Animation_kr32i"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/CharacterBody2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/CharacterBody2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mc1ag"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/CharacterBody2D:_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.73333335, 1),
+"transitions": PackedFloat32Array(1, 2.2973974, 1, 2.2973974, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.885), Vector2(1, 1), Vector2(1, 0.885), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/CharacterBody2D:_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.76666665, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1.205), Vector2(0, 0), Vector2(0, 1.205), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kr32i"]
+_data = {
+&"RESET": SubResource("Animation_kr32i"),
+&"idle": SubResource("Animation_mc1ag")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eu7ni"]
+
+[sub_resource type="Curve2D" id="Curve2D_8esbj"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector2Array(-0.1, 12, -0.1, 12, -12, 0, -0.1, 12, 0.1, -12, 12, 0, -0.1, -12.46, 0, 0, -12, 0)
+}
+point_count = 3
+
+[node name="Pawn" type="Node2D"]
+script = ExtResource("1_s3cet")
+_scale = Vector2(2, 2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kr32i")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="AnimationPlayer"]
+script = ExtResource("2_os0yo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimationPlayer/CharacterBody2D"]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_eu7ni")
+
+[node name="Path2D" type="Path2D" parent="."]
+scale = Vector2(2, 1)
+curve = SubResource("Curve2D_8esbj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-12, 0)
+rotation = 1.5791295
+scale = Vector2(1, 1.8000001)
+
+[node name="Dot" type="Sprite2D" parent="."]
+texture = ExtResource("3_os0yo")
+script = ExtResource("4_lya4p")
+
+[node name="Label" type="Label" parent="Dot"]
+anchors_preset = -1
+offset_right = 40.0
+offset_bottom = 23.0
+text = "---"

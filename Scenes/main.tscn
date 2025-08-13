@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://boaew5wnn17xx"]
 
 [ext_resource type="Script" uid="uid://b78n064s50uy1" path="res://Scripts/main.gd" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://brlrf5ke2afpf" path="res://Scenes/pawn_poly.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://bprviblg0xs3q" path="res://Scenes/pawn_path.tscn" id="2_bo1nx"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jjgbg")
 
-[node name="PawnPoly" parent="." instance=ExtResource("2_bo1nx")]
+[node name="Pawn" parent="." instance=ExtResource("2_bo1nx")]
+_scale = Vector2(1, 1)
