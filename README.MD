@@ -1,6 +1,8 @@
 # v4-5 GitHub repo 
 
-# 25-08-12                
+## 25-08-12 Draw Pawn 2 Circles and PathFollow2D
+
+## 25-08-12 Draw Pawn 1 \_draw() lines and Polygon2D
 - Draw Pawn with draw_line
 - Draw Pawn with textured poly
 - Add movement without LERP
