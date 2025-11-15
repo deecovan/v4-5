@@ -7,4 +7,3 @@
 script = ExtResource("1_jjgbg")
 
 [node name="Pawn" parent="." instance=ExtResource("2_bo1nx")]
-_scale = Vector2(1, 1)
